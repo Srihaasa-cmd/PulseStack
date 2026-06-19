@@ -14,7 +14,7 @@ users =[]
 ##home route
 @app.route("/")
 def home():
-    return "Welcome to PulseStack User Service "
+    return "Welcome to PulseStack User Service in login "
     logging.info("Home endpoint called")
 ##health route
 @app.route("/health")
