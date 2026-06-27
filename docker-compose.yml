@@ -1,0 +1,29 @@
+services:
+    userservice:
+       build: ./UserService
+       ports:
+         - "5001:5001"
+       volumes:
+         - users-data:/app/data
+    
+     
+
+    productservice:
+       build: ./ProductService
+       ports:
+         - "5002:5002"
+       volumes:
+         - products-data:/app/data
+    
+       
+
+    orderservice:
+       build: ./OrderService
+       ports:
+         - "5003:5003"
+       volumes:
+         - orders-data:/app/data
+volumes:
+  users-data:
+  products-data:
+  orders-data:
