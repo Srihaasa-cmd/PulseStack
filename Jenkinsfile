@@ -13,9 +13,9 @@ pipeline {
             steps {
                 sh '''
                 python3 --version
-                pip3 install -r UserService/requirements.txt
-                pip3 install -r ProductService/requirements.txt
-                pip3 install -r OrderService/requirements.txt
+                pip3 install --break-system-packages -r UserService/requirements.txt
+                pip3 install --break-system-packages -r ProductService/requirements.txt
+                pip3 install --break-system-packages -r OrderService/requirements.txt
                 '''
             }
         }
