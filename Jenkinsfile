@@ -77,21 +77,29 @@ stage('Build OrderService Image') {
 stage('Scan UserService Image') {
     steps {
         sh '''
-        trivy image userservice:${BUILD_NUMBER}
+        docker run --rm \
+        -v /var/run/docker.sock:/var/run/docker.sock \
+        aquasec/trivy:latest image userservice:${BUILD_NUMBER}
         '''
     }
 }
+
 stage('Scan ProductService Image') {
     steps {
         sh '''
-        trivy image productservice:${BUILD_NUMBER}
+        docker run --rm \
+        -v /var/run/docker.sock:/var/run/docker.sock \
+        aquasec/trivy:latest image productservice:${BUILD_NUMBER}
         '''
     }
 }
+
 stage('Scan OrderService Image') {
     steps {
         sh '''
-        trivy image orderservice:${BUILD_NUMBER}
+        docker run --rm \
+        -v /var/run/docker.sock:/var/run/docker.sock \
+        aquasec/trivy:latest image orderservice:${BUILD_NUMBER}
         '''
     }
 }
