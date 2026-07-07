@@ -12,7 +12,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh '''
-                python3 --version
+                pip3 install --break-system-packages pytest flake8
                 pip3 install --break-system-packages -r UserService/requirements.txt
                 pip3 install --break-system-packages -r ProductService/requirements.txt
                 pip3 install --break-system-packages -r OrderService/requirements.txt
